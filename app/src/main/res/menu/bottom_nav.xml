@@ -25,4 +25,5 @@
         android:id="@+id/nav_kalori_minus"
         android:icon="@drawable/ic_baseline_horizontal_rule_24"
         android:title="Kalori-"/>
+
 </menu>
