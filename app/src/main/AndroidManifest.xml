@@ -10,12 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kalori">
         <activity
-            android:name=".SwipeLeft"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".SwipeRight"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
