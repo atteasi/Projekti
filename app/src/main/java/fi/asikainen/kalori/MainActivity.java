@@ -18,10 +18,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
-
         BottomNavigationView bottomNavigator = findViewById(R.id.bottom_navigation);
         bottomNavigator.setOnNavigationItemSelectedListener(listener);
         bottomNavigator.setSelectedItemId(R.id.nav_home);
