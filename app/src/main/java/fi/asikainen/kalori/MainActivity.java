@@ -42,6 +42,14 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_mood:
                             selection = new MoodFragment();
                             break;
+
+                        case R.id.nav_kalori_minus:
+                            selection = new KaloriMinusFragment();
+                            break;
+
+                        case R.id.nav_kalori_plus:
+                            selection = new KaloriPlusFragment();
+                            break;
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selection).commit();
