@@ -16,21 +16,22 @@ import androidx.fragment.app.FragmentActivity;
 import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
-    final Button add = getView().findViewById(R.id.button);
-    private ArrayList<Ruoka> ruuat = new ArrayList<>();
-    private ArrayAdapter<Ruoka> listAdapter;
-    ListView ruokalista = getView().findViewById(R.id.ruokalista);
+   // final Button add = getView().findViewById(R.id.button);
+    //private ArrayList<Ruoka> ruuat = new ArrayList<>();
+    //private ArrayAdapter<Ruoka> listAdapter;
+    //ListView ruokalista = getView().findViewById(R.id.ruokalista);
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.kalori_plus_fragment, container, false);
-        this.listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ruuat);
-        ruokalista.setAdapter(listAdapter);
+        //En saanu tuota tänää toimimaa, teen sen huomenna.
+        //this.listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ruuat);
+        //ruokalista.setAdapter(listAdapter);
     }
 
 
-
+/*
     public void onClick(){
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +43,6 @@ public class KaloriPlusFragment extends Fragment {
                 ruuat.add(new Ruoka(addKalorit, addRuoka));
             }
         });
-    }
+    }*/
 }
 
