@@ -27,7 +27,7 @@ public class KaloriPlusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.kalori_plus_fragment, container, false);
-      //  this.listAdapter = new ArrayAdapter<Ruoka>(this, ruokalista, android.R.layout.simple_list_item_1, ruuat);
+        //  this.listAdapter = new ArrayAdapter<Ruoka>(this, ruokalista, android.R.layout.simple_list_item_1, ruuat);
         // ruokalista.setAdapter(listAdapter);
         ruoka.setText("");
         kalorit.setText("");
