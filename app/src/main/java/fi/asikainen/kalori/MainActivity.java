@@ -1,14 +1,12 @@
 package fi.asikainen.kalori;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.Window;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.Window;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigator = findViewById(R.id.bottom_navigation);
         bottomNavigator.setOnNavigationItemSelectedListener(listener);
+        bottomNavigator.setSelectedItemId(R.id.nav_home);
+
         bottomNavigator.setSelectedItemId(R.id.nav_home);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
