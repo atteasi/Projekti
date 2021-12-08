@@ -16,12 +16,12 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
-    //final Button add = getView().findViewById(R.id.button);
+    final Button add = getView().findViewById(R.id.button);
     private static ArrayList<Ruoka> ruuat = new ArrayList<>();
     private ArrayAdapter<Ruoka> listAdapter;
-    //ListView ruokalista = getView().findViewById(R.id.ruokalista);
-    //EditText ruoka = getView().findViewById(R.id.ruoka);
-    //EditText kalorit = getView().findViewById(R.id.kalorit);
+    ListView ruokalista = getView().findViewById(R.id.ruokalista);
+    EditText ruoka = getView().findViewById(R.id.ruoka);
+    EditText kalorit = getView().findViewById(R.id.kalorit);
 
     @Nullable
     @Override
@@ -30,7 +30,7 @@ public class KaloriPlusFragment extends Fragment {
     }
 
 
-/*
+
     public void onClick(){
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,6 +42,6 @@ public class KaloriPlusFragment extends Fragment {
                 kalorit.setText("");
             }
         });
-    }*/
+    }
 }
 
