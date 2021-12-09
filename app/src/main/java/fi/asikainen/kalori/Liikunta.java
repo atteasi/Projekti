@@ -8,4 +8,8 @@ public class Liikunta {
         this.muoto = muoto;
         this.kalorit = kalorit;
     }
+
+    public String toString(){
+        return this.muoto;
+    }
 }

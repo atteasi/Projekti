@@ -1,5 +1,7 @@
 package fi.asikainen.kalori;
 
+import static fi.asikainen.kalori.Ruoka.ruuat;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
     private ArrayAdapter<Ruoka> listAdapter;
+    private ArrayList<Ruoka> ruuat = new ArrayList<>();
 
     @Nullable
     @Override
@@ -26,7 +29,7 @@ public class KaloriPlusFragment extends Fragment {
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
-        this.listAdapter = new ArrayAdapter<Ruoka>(getContext(), android.R.layout.simple_list_item_1, Ruoka.ruuat);
+        this.listAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listAdapter);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -34,12 +37,10 @@ public class KaloriPlusFragment extends Fragment {
             public void onClick(View v) {
                 String addRuoka = ruoka.getText().toString();
                 String addKalorit = kalorit.getText().toString();
-                if(addRuoka != "" && addKalorit != "") {
-                    new Ruoka(addKalorit, addRuoka);
-                    ruoka.setText("");
-                    kalorit.setText("");
-                    listAdapter.notifyDataSetChanged();
-                }
+                ruuat.add(new Ruoka(addKalorit, addRuoka));
+                ruoka.setText("");
+                kalorit.setText("");
+                listAdapter.notifyDataSetChanged();
             }
         });
         return v;

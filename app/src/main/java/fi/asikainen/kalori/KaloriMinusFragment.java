@@ -29,10 +29,10 @@ public class KaloriMinusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
-        Button add = (Button) v.findViewById(R.id.button);
+        Button add = (Button) v.findViewById(R.id.lisäys_nappi);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
-        ListView liikuntaLista = v.findViewById(R.id.ruokalista);
+        ListView liikuntaLista = v.findViewById(R.id.liikuntalista);
 
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, liikunnat);
         liikuntaLista.setAdapter(listaaja);
@@ -42,12 +42,10 @@ public class KaloriMinusFragment extends Fragment {
             public void onClick(View v) {
                 String addLiikunta = liikunta.getText().toString();
                 String addKalorit = kalorit.getText().toString();
-                if(addLiikunta != "" && addKalorit != "") {
-                    new Ruoka(addLiikunta, addKalorit);
+                    liikunnat.add(new Liikunta(addLiikunta, addKalorit));
                     liikunta.setText("");
                     kalorit.setText("");
                     listaaja.notifyDataSetChanged();
-                }
             }
         });
         return v;

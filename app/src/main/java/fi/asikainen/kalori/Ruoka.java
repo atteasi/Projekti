@@ -10,7 +10,6 @@ public class Ruoka{
     public Ruoka(String kalorit, String nimi) {
         this.nimi = nimi;
         this.kalorit = kalorit;
-        ruuat.add(new Ruoka(this.kalorit, this.nimi));
     }
 
     public String toString(){
@@ -18,6 +17,7 @@ public class Ruoka{
     }
 
     public String getKalorit(){
-        return this.kalorit;
+        return kalorit;
     }
+
 }
