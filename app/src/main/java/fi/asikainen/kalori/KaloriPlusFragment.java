@@ -26,7 +26,7 @@ public class KaloriPlusFragment extends Fragment {
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
-        this.listAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, Ruoka.ruuat);
+        this.listAdapter = new ArrayAdapter<Ruoka>(getContext(), android.R.layout.simple_list_item_1, Ruoka.ruuat);
         ruokalista.setAdapter(listAdapter);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -34,9 +34,12 @@ public class KaloriPlusFragment extends Fragment {
             public void onClick(View v) {
                 String addRuoka = ruoka.getText().toString();
                 String addKalorit = kalorit.getText().toString();
-                new Ruoka(addKalorit, addRuoka);
-                ruoka.setText("");
-                kalorit.setText("");
+                if(addRuoka != "" && addKalorit != "") {
+                    new Ruoka(addKalorit, addRuoka);
+                    ruoka.setText("");
+                    kalorit.setText("");
+                    listAdapter.notifyDataSetChanged();
+                }
             }
         });
         return v;
