@@ -27,7 +27,7 @@ public class KaloriPlusFragment extends Fragment {
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
-        this.listAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
+        this.listAdapter = new ArrayAdapter(getContext(), R.layout.kalori_list_item, ruuat);
         ruokalista.setAdapter(listAdapter);
 
         add.setOnClickListener(new View.OnClickListener() {
