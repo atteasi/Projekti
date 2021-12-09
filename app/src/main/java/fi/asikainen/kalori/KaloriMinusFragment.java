@@ -29,18 +29,12 @@ public class KaloriMinusFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
-        SharedPreferences share = getActivity().getSharedPreferences("Shared", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = share.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(liikunnat);
-        share.getString("liikunnat", json);
-        liikunnat = share.getStringSet("liikunnat", );
         Button add = (Button) v.findViewById(R.id.button);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
         ListView liikuntaLista = v.findViewById(R.id.ruokalista);
 
-        this.listaaja = new ArrayAdapter<Liikunta>(getContext(), android.R.layout.simple_list_item_1, liikunnat);
+        this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, liikunnat);
         liikuntaLista.setAdapter(listaaja);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -59,13 +53,5 @@ public class KaloriMinusFragment extends Fragment {
         return v;
     }
 
-    public void onPause() {
-        super.onPause();
-        SharedPreferences share = getActivity().getSharedPreferences("Shared", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = share.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(liikunnat);
-        edit.putString("liikunnat", json);
-    }
 }
 
