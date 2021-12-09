@@ -24,7 +24,7 @@ public class KaloriMinusFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
+        View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
         Button add = (Button) v.findViewById(R.id.button);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
