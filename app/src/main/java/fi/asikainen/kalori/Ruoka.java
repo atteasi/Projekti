@@ -13,11 +13,7 @@ public class Ruoka{
     }
 
     public String toString(){
+
         return this.nimi;
     }
-
-    public String getKalorit(){
-        return kalorit;
-    }
-
 }
