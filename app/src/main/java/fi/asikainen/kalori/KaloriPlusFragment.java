@@ -41,6 +41,7 @@ public class KaloriPlusFragment extends Fragment {
             }
         });
         return v;
+
     }
 }
 
