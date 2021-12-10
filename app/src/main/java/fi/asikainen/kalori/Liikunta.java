@@ -14,6 +14,6 @@ public class Liikunta {
     }
 
     public String toString(){
-        return this.muoto + ",     " + this.kalorit + "kaloria";
+        return this.muoto + ",                " + this.kalorit + " kulutettua kaloria";
     }
 }
