@@ -18,17 +18,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class KaloriMinusFragment extends Fragment {
 
     private ArrayAdapter<Liikunta> listaaja;
     private ArrayList<Liikunta> liikunnat = new ArrayList<>();
+    Gson gson = new Gson();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
+        SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
+        String json = share.getString("liikunta", null);
+        Type tyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
+        liikunnat = gson.fromJson(json,tyyppi);
         Button add = (Button) v.findViewById(R.id.lisäys_nappi);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
@@ -49,6 +56,15 @@ public class KaloriMinusFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    public void onPause() {
+        super.onPause();
+        String json = gson.toJson(liikunnat);
+        SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = share.edit();
+        edit.putString("liikunnat", json);
+        edit.commit();
     }
 
 }
