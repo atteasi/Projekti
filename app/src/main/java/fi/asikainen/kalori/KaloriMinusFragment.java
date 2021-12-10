@@ -21,6 +21,10 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * The fragment used to log exerices that burn calories
+ */
+
 public class KaloriMinusFragment extends Fragment {
 
     private ArrayAdapter<Liikunta> listaaja;

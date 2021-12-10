@@ -1,5 +1,9 @@
 package fi.asikainen.kalori;
 
+/**
+ * A class that has a constructor for Liikunta-type entries and a toString method
+ */
+
 public class Liikunta {
     private String muoto;
     private String kalorit;
@@ -10,6 +14,6 @@ public class Liikunta {
     }
 
     public String toString(){
-        return this.muoto;
+        return this.muoto + ",     " + this.kalorit + "kaloria";
     }
 }

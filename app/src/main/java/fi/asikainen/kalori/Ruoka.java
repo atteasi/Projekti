@@ -14,6 +14,6 @@ public class Ruoka{
 
     public String toString(){
 
-        return this.nimi;
+        return this.nimi + ",     " + this.kalorit + "kulutettua kaloria";
     }
 }

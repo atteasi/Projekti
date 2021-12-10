@@ -21,8 +21,20 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * The fragment used to log the intake of calories
+ *
+ *
+*/
 public class KaloriPlusFragment extends Fragment {
 
+    /**
+    * @param listaaja The adapter for our Ruoka-listview that shows the foods the user marks in the app
+    * @param ruuat An arraylist of the foods the user marks in the app
+    *
+
+
+     */
     private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
 
@@ -30,6 +42,7 @@ public class KaloriPlusFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
 
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
