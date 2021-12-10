@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    compileOnly files("D:/Apps_Dev_IDE/Android/SDK/platforms/android-31/android.jar")
+    compileOnly files("C:/Users/atte_/AppData/Local/Android/Sdk/platforms/android-31/android.jar")
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
@@ -41,19 +41,4 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'
-    implementation 'com.nineoldandroids:library:2.4.0'
-
-    def roomVersion = '2.3.0'
-    implementation "androidx.room:room-runtime:$roomVersion"
-    annotationProcessor "androidx.room:room-compiler:$roomVersion"
-    testImplementation "androidx.room:room-testing:$roomVersion"
-
-    def lifecycle_version = '2.3.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 }
