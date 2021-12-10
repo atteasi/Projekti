@@ -25,18 +25,24 @@ public class KaloriMinusFragment extends Fragment {
 
     private ArrayAdapter<Liikunta> listaaja;
     private ArrayList<Liikunta> liikunnat = new ArrayList<>();
+
     Gson gson = new Gson();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
 
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("liikunnat", null);
         Type tyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
-        liikunnat = gson.fromJson(json,tyyppi);
+        liikunnat = gson.fromJson(json, tyyppi);
 
-        Button add = (Button) v.findViewById(R.id.lisäys_nappi);
+        if(liikunnat == null){
+            liikunnat = new ArrayList<>();
+        }
+
+        Button add = (Button) v.findViewById(R.id.nappi);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
         ListView liikuntaLista = v.findViewById(R.id.liikuntalista);
@@ -50,8 +56,10 @@ public class KaloriMinusFragment extends Fragment {
                 String addLiikunta = liikunta.getText().toString();
                 String addKalorit = kalorit.getText().toString();
                 liikunnat.add(new Liikunta(addLiikunta, addKalorit));
+
                 liikunta.setText("");
                 kalorit.setText("");
+
                 listaaja.notifyDataSetChanged();
             }
         });
@@ -62,6 +70,7 @@ public class KaloriMinusFragment extends Fragment {
         super.onPause();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
+
         String json = gson.toJson(liikunnat);
         edit.putString("liikunnat", json);
         edit.commit();

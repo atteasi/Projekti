@@ -22,23 +22,33 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
+
     private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
+
     Gson gson = new Gson();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
+
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("ruuat", null);
         Type tyyppi = new TypeToken<ArrayList<Ruoka>>() {}.getType();
         ruuat = gson.fromJson(json,tyyppi);
+
+        if(ruuat == null){
+            ruuat = new ArrayList<>();
+        }
+
         Button add = (Button) v.findViewById(R.id.button);
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
+
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listaaja);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
