@@ -2,6 +2,8 @@ package fi.asikainen.kalori;
 
 import static fi.asikainen.kalori.Ruoka.ruuat;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +17,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
     private ArrayAdapter<Ruoka> listAdapter;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
-
+    Gson gson = new Gson();
+    SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
+    SharedPreferences.Editor edit = share.edit();
+    String json = gson.toJson(ruuat);
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,6 +36,7 @@ public class KaloriPlusFragment extends Fragment {
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
+        share.getString("ruuat", json);
         this.listAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listAdapter);
 
@@ -44,5 +52,11 @@ public class KaloriPlusFragment extends Fragment {
             }
         });
         return v;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        edit.putString("ruuat", json);
     }
 }
