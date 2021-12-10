@@ -22,7 +22,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class KaloriPlusFragment extends Fragment {
-    private ArrayAdapter<Ruoka> listAdapter;
+    private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
     Gson gson = new Gson();
     @Nullable
@@ -30,7 +30,6 @@ public class KaloriPlusFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = share.edit();
         String json = share.getString("ruuat", null);
         Type tyyppi = new TypeToken<ArrayList<Ruoka>>() {}.getType();
         ruuat = gson.fromJson(json,tyyppi);
@@ -38,9 +37,8 @@ public class KaloriPlusFragment extends Fragment {
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
-        this.listAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
-        ruokalista.setAdapter(listAdapter);
-        share.getString("ruuat", json);
+        this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
+        ruokalista.setAdapter(listaaja);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +47,7 @@ public class KaloriPlusFragment extends Fragment {
                 ruuat.add(new Ruoka(addKalorit, addRuoka));
                 ruoka.setText("");
                 kalorit.setText("");
-                listAdapter.notifyDataSetChanged();
+                listaaja.notifyDataSetChanged();
             }
         });
         return v;
