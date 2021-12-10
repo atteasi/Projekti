@@ -23,45 +23,40 @@ import java.util.ArrayList;
 
 /**
  * The fragment used to log the intake of calories
- *
- *
 */
 public class KaloriPlusFragment extends Fragment {
-
-    /**
-    * @param listaaja The adapter for our Ruoka-listview that shows the foods the user marks in the app
-    * @param ruuat An arraylist of the foods the user marks in the app
-    *
-
-
-     */
+    // The ArrayAdapter of the ListView used in this fragment, ArrayList that has the info about the entries the user gives,
+    // and the Gson used in the fragment
     private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
-
     Gson gson = new Gson();
+    /**
+     * The method that dictates what happens when the view is created
+     * @return The view that is created when selecting Kalori+-fragment
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        //The view that is created when selecting the Kalori+-fragment
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
-
+        //Initialization of the SharedPreferences and the retrieval of the ruuat-ArrayList
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("ruuat", null);
         Type tyyppi = new TypeToken<ArrayList<Ruoka>>() {}.getType();
         ruuat = gson.fromJson(json,tyyppi);
-
+        //In case the retrieval provides null, a ruuat-arraylist is created
         if(ruuat == null){
             ruuat = new ArrayList<>();
         }
-
+        //Initialization of the different UI-items in the layout of the fragment
         Button add = (Button) v.findViewById(R.id.button);
         EditText ruoka = v.findViewById(R.id.ruoka);
         EditText kalorit = v.findViewById(R.id.kalorit);
         ListView ruokalista = v.findViewById(R.id.ruokalista);
-
+        //Setting the adapter for the layouts ListView
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listaaja);
-
+        //The button functionality: It saves the logged entry and clears the EditText fields ready for a new entry. At the end, updates the list
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +71,9 @@ public class KaloriPlusFragment extends Fragment {
         return v;
     }
 
+    /**
+     * The onPause method makes sure the app saves the ruuat-ArrayList when putting the Kalori+ -fragment on pause
+     */
     @Override
     public void onPause() {
         super.onPause();

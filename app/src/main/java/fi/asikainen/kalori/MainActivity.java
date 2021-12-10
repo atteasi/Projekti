@@ -2,13 +2,16 @@ package fi.asikainen.kalori;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+/**
+ * This activity makes sure the Fragment Container displays the desired fragment
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                             break;
 
                         case R.id.nav_mood:
-                            selection = new MoodFragment();
+                            selection = new BMIFragment();
                             break;
 
                         case R.id.nav_kalori_minus:

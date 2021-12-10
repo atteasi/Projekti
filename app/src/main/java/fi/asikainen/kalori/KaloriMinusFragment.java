@@ -29,7 +29,6 @@ public class KaloriMinusFragment extends Fragment {
 
     private ArrayAdapter<Liikunta> listaaja;
     private ArrayList<Liikunta> liikunnat = new ArrayList<>();
-
     Gson gson = new Gson();
     @Nullable
     @Override
