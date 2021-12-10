@@ -7,14 +7,14 @@ package fi.asikainen.kalori;
 public class Liikunta {
 
     private String muoto;
-    private String kalorit;
+    private int kalorit;
 
     /**
      * The constuctor for Liikunta-type entries
      * @param muoto The form of exercise the user logs
      * @param kalorit The amount of calories burned
      */
-    public Liikunta(String muoto, String kalorit) {
+    public Liikunta(String muoto, int kalorit) {
         this.muoto = muoto;
         this.kalorit = kalorit;
     }
@@ -24,7 +24,6 @@ public class Liikunta {
      * @return form of the print that shows up in a ListView
      */
     public String toString(){
-
         return this.muoto + ",                " + this.kalorit + " kulutettua kaloria";
     }
 }
