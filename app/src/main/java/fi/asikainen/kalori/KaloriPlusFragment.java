@@ -2,6 +2,7 @@ package fi.asikainen.kalori;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,23 +14,27 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
  * The fragment used to log the intake of calories
 */
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class KaloriPlusFragment extends Fragment {
     // The ArrayAdapter of the ListView used in this fragment, ArrayList that has the info about the entries the user gives,
     // and the Gson used in the fragment
     private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
     Gson gson = new Gson();
+    private LocalDate date = LocalDate.now();
     /**
      * The method that dictates what happens when the view is created
      * @return The view that is created when selecting Kalori+-fragment
@@ -63,7 +68,7 @@ public class KaloriPlusFragment extends Fragment {
                 String addRuoka = ruoka.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
-                ruuat.add(new Ruoka(addKalorit, addRuoka));
+                ruuat.add(new Ruoka(addKalorit, addRuoka, date));
                 ruoka.setText("");
                 kalorit.setText("0");
                 listaaja.notifyDataSetChanged();

@@ -20,6 +20,8 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * The fragment used to log exerices that burn calories
@@ -40,7 +42,6 @@ public class KaloriMinusFragment extends Fragment {
         String json = share.getString("liikunnat", null);
         Type tyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
         liikunnat = gson.fromJson(json, tyyppi);
-
         if(liikunnat == null){
             liikunnat = new ArrayList<>();
         }
