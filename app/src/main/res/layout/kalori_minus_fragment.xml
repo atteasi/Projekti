@@ -45,17 +45,17 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
-    android:id="@+id/kalorit_edit"
-    android:layout_width="226dp"
-    android:layout_height="48dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_marginTop="161dp"
-    android:layout_marginEnd="169dp"
-    android:layout_marginRight="120dp"
-    android:inputType="number"
-    android:layout_marginBottom="522dp"
-    android:text="0" />
+        android:id="@+id/kalorit_edit"
+        android:layout_width="226dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="161dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginRight="120dp"
+        android:inputType="number"
+        android:layout_marginBottom="522dp"
+        android:text="0" />
 
     <Button
         android:id="@+id/nappi"
@@ -76,4 +76,16 @@
         android:layout_marginTop="250dp"
         android:layout_marginBottom="10dp"
         android:background="#ECEAEA" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="254dp"
+        android:layout_marginTop="174dp"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="536dp"
+        android:text="Kaloria"
+        android:textSize="16dp" />
 </RelativeLayout>
