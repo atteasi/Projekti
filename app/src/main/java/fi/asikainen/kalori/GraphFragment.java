@@ -42,6 +42,7 @@ public class GraphFragment extends Fragment {
         liikunnat = gson.fromJson(liikunta, liikuntaTyyppi);
         ruuat = gson.fromJson(ruoka, ruokaTyyppi);
         GraphView graphView;
+        graphView = v.findViewById(R.id.idGraphView);
 
         LineGraphSeries<DataPoint> pointit = new LineGraphSeries<>(new DataPoint[] {
 
@@ -49,6 +50,8 @@ public class GraphFragment extends Fragment {
                 new DataPoint(1, ruuat.get(1).getKalorit())
 
         });
+
+        graphView.addSeries(pointit);
         Button clear = (Button) v.findViewById(R.id.clearaus);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
