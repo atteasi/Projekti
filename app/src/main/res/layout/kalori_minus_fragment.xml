@@ -55,7 +55,7 @@
     android:layout_marginRight="120dp"
     android:inputType="number"
     android:layout_marginBottom="522dp"
-    android:text="Kalorit" />
+    android:text="0" />
 
     <Button
         android:id="@+id/nappi"

@@ -6,7 +6,7 @@ import java.util.ArrayList;
  */
 public class Ruoka{
 
-    private String kalorit;
+    private int kalorit;
     private String nimi;
 
     /**
@@ -14,12 +14,13 @@ public class Ruoka{
      * @param kalorit The amount of calories in the consumed food
      * @param nimi The name of the dish/food item
      */
-    public Ruoka(String kalorit, String nimi) {
+    public Ruoka(int kalorit, String nimi) {
         this.nimi = nimi;
         this.kalorit = kalorit;
     }
 
     public String toString(){
-        return this.nimi + ",                " + this.kalorit + " kaloria";
+        String kaloreita = Integer.toString(this.kalorit);
+        return this.nimi + ",                " + kaloreita + " kaloria";
     }
 }

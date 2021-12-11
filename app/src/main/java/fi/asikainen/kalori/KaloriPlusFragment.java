@@ -61,7 +61,8 @@ public class KaloriPlusFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String addRuoka = ruoka.getText().toString();
-                String addKalorit = kalorit.getText().toString();
+                String kaloriValue = kalorit.getText().toString();
+                int addKalorit = Integer.parseInt(kaloriValue);
                 ruuat.add(new Ruoka(addKalorit, addRuoka));
                 ruoka.setText("");
                 kalorit.setText("");
