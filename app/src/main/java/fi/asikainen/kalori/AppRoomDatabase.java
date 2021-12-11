@@ -16,8 +16,8 @@ import java.util.concurrent.Executors;
 public abstract class AppRoomDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();
-    //public abstract CalAddDAO calAddDAO();
-    //public abstract CalSubDAO calSubDAO();
+    public abstract CalAddDAO calAddDAO();
+    public abstract CalSubDAO calSubDAO();
     //public abstract WeightDAO weightDAO();
 
     private static volatile AppRoomDatabase roomInstance;
