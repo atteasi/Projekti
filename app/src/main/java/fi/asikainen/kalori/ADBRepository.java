@@ -12,7 +12,9 @@ import java.util.concurrent.Future;
 class ADBRepository {
 
     private UserDAO userDao;
+    private WeightDAO weightDao;
     private LiveData<List<User>> allUsers;
+    private LiveData<List<Weight>> allWeights;
     private User getNamedUser;
 
     ADBRepository(Application application){
@@ -21,6 +23,7 @@ class ADBRepository {
 
         //getNamedUser = userDao.getNamedUser(userDao.);
         allUsers = userDao.getAllUsers();
+        allWeights = weightDao.getAllWeights();
 
     }
 
@@ -28,10 +31,6 @@ class ADBRepository {
         AppRoomDatabase.databaseWriteExecutor.execute(() -> {
             userDao.insert(user);
         });
-    }
-
-    LiveData<List<User>> getUser(){
-        return allUsers;
     }
 
     User getNamedUser(String first, String last){
@@ -43,5 +42,19 @@ class ADBRepository {
         }
         return getNamedUser;
     }
+
+    void insert(Weight weight) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            weightDao.insert(weight);
+        });
+    }
+
+    LiveData<List<User>> getUser(){
+        return allUsers;
+    }
+
+    LiveData<List<Weight>> getAllWeights(){return allWeights;}
+
+
 
 }

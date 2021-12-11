@@ -17,24 +17,31 @@ public class User {
     public int id;
 
     @NonNull
+    @ColumnInfo(name = "creation_date")
+    public Date insertDate;
+
+    @NonNull
     @ColumnInfo(name = "user_age")
     public int age;
+
     @NonNull
     @ColumnInfo(name = "user_birthday")
     public Date birthday;
-    //Possibly custom object 'Date' for birth date?
+
     @NonNull
     @ColumnInfo(name = "user_firstname")
     public String nameFirst;
+
     @NonNull
     @ColumnInfo(name = "user_lastname")
     public String nameLast;
+
     @NonNull
     @ColumnInfo(name = "user_gender")
     public String gender;
 
-    public User(@NonNull int age, Date birthday, @NonNull String nameFirst, @NonNull String nameLast, @NonNull String gender) {
-        //this.uid = id;
+    public User(@NonNull Date insertDate, int age, Date birthday, @NonNull String nameFirst, @NonNull String nameLast, @NonNull String gender) {
+        this.insertDate = insertDate;
         this.age = age;
         this.birthday = birthday;
         this.nameFirst = nameFirst;
@@ -42,21 +49,18 @@ public class User {
         this.gender = gender;
     }
 
-    public int getId() { return id; }
+    public int getId() {return id;}
 
-    public int getAge() { return age; }
+    public Date getInsertDate() {return insertDate;}
 
     public Date getBirthday() {return birthday;}
 
-    public String getNameFirst() {
-        return nameFirst;
-    }
+    public int getAge() {return age;}
 
-    public String getNameLast() {
-        return nameLast;
-    }
+    public String getNameFirst() {return nameFirst;}
 
-    public String getGender() {
-        return gender;
-    }
+    public String getNameLast() {return nameLast;}
+
+    public String getGender() {return gender;}
+
 }

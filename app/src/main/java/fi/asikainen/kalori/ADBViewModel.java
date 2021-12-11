@@ -10,6 +10,7 @@ public class ADBViewModel extends AndroidViewModel {
 
     private ADBRepository repository;
     private final LiveData<List<User>> userList;
+    private final LiveData<List<Weight>> weightList;
     //private User getNamedUser;
 
     public ADBViewModel(Application application){
@@ -17,18 +18,21 @@ public class ADBViewModel extends AndroidViewModel {
         repository = new ADBRepository(application);
 
         userList = repository.getUser();
+        weightList = repository.getAllWeights();
         //getNamedUser = repository.getNamedUser(getNamedUser.nameFirst, getNamedUser.nameLast);
 
     }
 
     public void insert(User user) {repository.insert(user); }
 
+    User getNamedUser(String first, String last){
+        return repository.getNamedUser(first, last);
+    }
+
     LiveData<List<User>> getAllUsers(){
         return userList;
     }
 
-    User getNamedUser(String first, String last){
-        return repository.getNamedUser(first, last);
-    }
+    LiveData<List<Weight>> getAllWeights(){return weightList;}
 
 }
