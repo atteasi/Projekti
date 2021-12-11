@@ -3,23 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/bmi_fragment.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/graphs_fragment.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/home_fragment.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/kalori_minus_fragment.xml" value="0.25" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/layout/mood_fragment.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/Atte/AndroidStudioProjects/Projekti/app/src/main/res/menu/bottom_nav.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/activity_main.xml" value="0.13787281935846932" />
+        <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/graphs_fragment.xml" value="0.264" />
         <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/kalori_minus_fragment.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/kalori_plus_fragment.xml" value="0.4" />
         <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/left_screen.xml" value="0.536" />
         <entry key="..\:/Users/atte_/AndroidStudioProjects/Kalori/app/src/main/res/layout/right_screen.xml" value="0.536" />
       </map>
     </option>
-  </component>
-  <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

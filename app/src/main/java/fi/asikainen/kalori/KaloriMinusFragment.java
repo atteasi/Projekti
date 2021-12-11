@@ -61,7 +61,7 @@ public class KaloriMinusFragment extends Fragment {
                 int addKalorit = Integer.parseInt(kaloriValue);
                 liikunnat.add(new Liikunta(addLiikunta, addKalorit));
                 liikunta.setText("");
-                kalorit.setText("");
+                kalorit.setText("0");
                 listaaja.notifyDataSetChanged();
             }
         });

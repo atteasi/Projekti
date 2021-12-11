@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,23 +19,13 @@
 
     <Button
         android:id="@+id/clearaus"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
-        android:layout_marginStart="267dp"
-        android:layout_marginTop="650dp"
-        android:layout_marginEnd="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#CA0606"
         android:text="Clear data" />
 
-    <com.jjoe64.graphview.GraphView
-        android:id="@+id/idGraphView"
-        android:layout_width="match_parent"
-        android:layout_height="299dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="351dp"
-        android:paddingBottom="300dp" />
 
 </RelativeLayout>
 
