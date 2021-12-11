@@ -21,8 +21,13 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * The fragment used to log the intake of calories
@@ -34,7 +39,7 @@ public class KaloriPlusFragment extends Fragment {
     private ArrayAdapter<Ruoka> listaaja;
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
     Gson gson = new Gson();
-    private LocalDate date = LocalDate.now();
+
     /**
      * The method that dictates what happens when the view is created
      * @return The view that is created when selecting Kalori+-fragment
@@ -44,6 +49,8 @@ public class KaloriPlusFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //The view that is created when selecting the Kalori+-fragment
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         //Initialization of the SharedPreferences and the retrieval of the ruuat-ArrayList
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("ruuat", null);
@@ -62,12 +69,14 @@ public class KaloriPlusFragment extends Fragment {
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listaaja);
         //The button functionality: It saves the logged entry and clears the EditText fields ready for a new entry. At the end, updates the list
+        ArrayList<Ruoka> finalRuuat = ruuat;
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String addRuoka = ruoka.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
+
                 ruuat.add(new Ruoka(addKalorit, addRuoka, date));
                 ruoka.setText("");
                 kalorit.setText("0");
@@ -85,8 +94,8 @@ public class KaloriPlusFragment extends Fragment {
         super.onPause();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
-        String json = gson.toJson(ruuat);
-        edit.putString("ruuat", json);
+        //String json = gson.toJson(ruuat);
+        //edit.putString("ruuat", json);
         edit.commit();
     }
 }

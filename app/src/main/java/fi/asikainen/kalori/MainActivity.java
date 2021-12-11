@@ -1,9 +1,11 @@
 package fi.asikainen.kalori;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView.OnNavigationItemSelectedListener listener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selection = null;

@@ -25,16 +25,22 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="277dp"
-        android:layout_height="257dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="67dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="357dp"
-        android:max="2500"/>
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="229dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="173dp"
+        android:max="2500" />
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="277dp"
+        android:background="#ECEAEA"/>
 
 
 </RelativeLayout>
