@@ -46,7 +46,6 @@ public class KaloriPlusFragment extends Fragment {
         //The view that is created when selecting the Kalori+-fragment
         View v = inflater.inflate(R.layout.kalori_plus_fragment, container, false);
         LocalDate date = LocalDate.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         //Initialization of the SharedPreferences and the retrieval of the ruuat-ArrayList
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("ruuat", null);

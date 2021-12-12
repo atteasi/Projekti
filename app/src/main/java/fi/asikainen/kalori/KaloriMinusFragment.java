@@ -2,6 +2,7 @@ package fi.asikainen.kalori;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,12 +14,14 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -30,12 +33,14 @@ public class KaloriMinusFragment extends Fragment {
     private ArrayAdapter<Liikunta> listaaja;
     private ArrayList<Liikunta> liikunnat = new ArrayList<>();
     Gson gson = new Gson();
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
 
+        LocalDate date = LocalDate.now();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("liikunnat", null);
         Type tyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
@@ -58,7 +63,7 @@ public class KaloriMinusFragment extends Fragment {
                 String addLiikunta = liikunta.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
-                liikunnat.add(new Liikunta(addLiikunta, addKalorit));
+                liikunnat.add(new Liikunta(addLiikunta, addKalorit, date));
                 liikunta.setText("");
                 kalorit.setText("0");
                 listaaja.notifyDataSetChanged();

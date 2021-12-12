@@ -33,7 +33,7 @@ public class Ruoka{
 
     public String toString(){
         String kaloreita = Integer.toString(this.kalorit);
-        return this.submissionDate + " " + this.nimi + ",                " + kaloreita + " kaloria";
+        return this.submissionDate + " " + this.nimi + ", " + kaloreita + " kaloria";
     }
 
     public int getKalorit() {
