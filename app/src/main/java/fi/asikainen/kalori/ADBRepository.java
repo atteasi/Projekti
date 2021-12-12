@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -27,7 +28,6 @@ class ADBRepository {
         allWeights = weightDao.getAllWeights();
         allCalAdds = calAddDao.getAllCalAdd();
         allCalSubs = calSubDao.getAllCalSub();
-
     }
 
     void insert(User user) {

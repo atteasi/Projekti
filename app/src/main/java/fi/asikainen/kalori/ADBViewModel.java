@@ -4,6 +4,8 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ADBViewModel extends AndroidViewModel {
@@ -11,6 +13,7 @@ public class ADBViewModel extends AndroidViewModel {
     private ADBRepository repository;
     private final LiveData<List<User>> userList; LiveData<List<Weight>> weightList;
                   LiveData<List<CalAdd>> calAddList; LiveData<List<CalSub>> calSubList;
+
 
 
     public ADBViewModel(Application application){
@@ -21,7 +24,6 @@ public class ADBViewModel extends AndroidViewModel {
         weightList = repository.getAllWeights();
         calAddList = repository.getAllCalAdds();
         calSubList = repository.getAllCalSubs();
-
     }
 
     public void insert(User user) {repository.insert(user); }
