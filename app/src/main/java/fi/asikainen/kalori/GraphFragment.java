@@ -61,6 +61,7 @@ public class GraphFragment extends Fragment {
                 edit.remove("ruuat");
                 edit.remove("liikunnat");
                 edit.commit();
+                graph.removeAllSeries();
             }
         });
         return v;
