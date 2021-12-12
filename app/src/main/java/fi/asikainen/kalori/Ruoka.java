@@ -13,7 +13,8 @@ import java.time.format.DateTimeFormatter;
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class Ruoka{
 
-    private LocalDate submissionDate;
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
+    private String submissionDate;
     private int kalorit;
     private String nimi;
     /**
@@ -26,14 +27,13 @@ public class Ruoka{
     public Ruoka(int kalorit, String nimi, LocalDate paiva) {
         this.nimi = nimi;
         this.kalorit = kalorit;
-        this.submissionDate = paiva;
+        this.submissionDate = dtf.format(paiva);
     }
+
 
     public String toString(){
         String kaloreita = Integer.toString(this.kalorit);
-        LocalDate newDate = this.submissionDate.plusMonths(1);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        return dtf.format(newDate) + " " + this.nimi + ",                " + kaloreita + " kaloria";
+        return this.submissionDate + " " + this.nimi + ",                " + kaloreita + " kaloria";
     }
 
     public int getKalorit() {
@@ -44,7 +44,7 @@ public class Ruoka{
         return nimi;
     }
 
-    public LocalDate getSubmissionDate() {
+    public String getSubmissionDate() {
         return this.submissionDate;
     }
 }

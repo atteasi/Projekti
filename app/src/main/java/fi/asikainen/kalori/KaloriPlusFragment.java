@@ -94,8 +94,8 @@ public class KaloriPlusFragment extends Fragment {
         super.onPause();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
-        //String json = gson.toJson(ruuat);
-        //edit.putString("ruuat", json);
+        String json = gson.toJson(ruuat);
+        edit.putString("ruuat", json);
         edit.commit();
     }
 }

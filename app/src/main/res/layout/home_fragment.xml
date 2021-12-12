@@ -31,7 +31,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="173dp"
-        android:max="2500" />
+        android:max="2500"
+        android:progressTint="@android:color/holo_green_dark"/>
 
     <ListView
         android:id="@+id/list"
@@ -42,5 +43,11 @@
         android:layout_marginTop="277dp"
         android:background="#ECEAEA"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="Päivittäiset kalorit"/>
 
 </RelativeLayout>

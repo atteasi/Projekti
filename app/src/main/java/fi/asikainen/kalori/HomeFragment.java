@@ -58,9 +58,11 @@ public class HomeFragment extends Fragment {
         String json = share.getString("ruuat", null);
         Type tyyppi = new TypeToken<ArrayList<Ruoka>>() {}.getType();
         ruuat = gson.fromJson(json, tyyppi);
-
+        if(ruuat == null){
+            ruuat = new ArrayList<>();
+        }
         for(int i = 0; i < ruuat.size();i++){
-           if(ruuat.get(i).getSubmissionDate().compareTo(date) < 0) {
+           if(ruuat.get(i).getSubmissionDate().compareTo(dtf.format(date)) == 0) {
                 todaysRuuat.add(new Ruoka(ruuat.get(i).getKalorit(), ruuat.get(i).getNimi(), date));
                 progress += ruuat.get(i).getKalorit();
             }
