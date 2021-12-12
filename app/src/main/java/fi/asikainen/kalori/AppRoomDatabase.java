@@ -11,7 +11,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {User.class, CalAdd.class, CalSub.class, Weight.class}, version = 9, exportSchema = false)
+@Database(entities = {User.class, CalAdd.class, CalSub.class, Weight.class}, version = 10, exportSchema = false)
 @TypeConverters({ADBConverters.class})
 public abstract class AppRoomDatabase extends RoomDatabase {
 
