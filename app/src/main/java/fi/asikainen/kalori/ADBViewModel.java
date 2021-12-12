@@ -54,6 +54,6 @@ public class ADBViewModel extends AndroidViewModel {
 
     LiveData<List<CalAdd>> getUsersCalAdds(int userID){return repository.getUsersCalAdds(userID);}
 
-
+    LiveData<List<CalSub>> getUsersCalSubs(int UserID){return repository.getUsersCalSubs(UserID);}
 
 }

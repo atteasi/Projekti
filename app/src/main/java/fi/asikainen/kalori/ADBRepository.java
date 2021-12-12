@@ -15,6 +15,7 @@ class ADBRepository {
     private LiveData<List<User>> allUsers; LiveData<List<Weight>> allWeights;
             LiveData<List<CalAdd>> allCalAdds; LiveData<List<CalSub>> allCalSubs;
     private LiveData<List<Weight>> allUserWeights; LiveData<List<CalAdd>> allUserCalAdds;
+            LiveData<List<CalSub>> allUserCalSubs;
     private User getNamedUser;
 
     ADBRepository(Application application){
@@ -106,13 +107,23 @@ class ADBRepository {
     }
 
     LiveData<List<CalAdd>> getUsersCalAdds(int userID){
-        Future<LiveData<List<CalAdd>>> futureUserCalAdds = AppRoomDatabase.databaseReadExecutor.submit(()-> calAddDao.getAllCalAdd());
+        Future<LiveData<List<CalAdd>>> futureUserCalAdds = AppRoomDatabase.databaseReadExecutor.submit(()-> calAddDao.getUsersCalAdds(userID));
         try {
             allUserCalAdds = futureUserCalAdds.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
         return allUserCalAdds;
+    }
+
+    LiveData<List<CalSub>> getUsersCalSubs(int userID){
+        Future<LiveData<List<CalSub>>> futureUserCalSubs = AppRoomDatabase.databaseReadExecutor.submit(()-> calSubDao.getUsersCalSubs(userID));
+        try {
+            allUserCalSubs = futureUserCalSubs.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return allUserCalSubs;
     }
 
 }

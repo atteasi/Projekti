@@ -22,6 +22,6 @@ public interface CalSubDAO {
     LiveData<List<CalSub>> getAllCalSub();
 
     @Query("SELECT * FROM calories_subtracted WHERE userID = :userID ")
-    LiveData<List<CalSub>> getUsersCalSub(int userID);
+    LiveData<List<CalSub>> getUsersCalSubs(int userID);
 
 }
