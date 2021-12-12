@@ -21,11 +21,10 @@
         android:id="@+id/clearaus"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="550dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#CA0606"
         android:text="Clear data" />
-
 
 </RelativeLayout>
 
