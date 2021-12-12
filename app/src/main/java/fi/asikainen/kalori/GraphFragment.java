@@ -2,6 +2,7 @@ package fi.asikainen.kalori;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
@@ -27,6 +29,7 @@ public class GraphFragment extends Fragment {
     Gson gson = new Gson();
     private ArrayList<Liikunta> liikunnat= new ArrayList<>();
     private ArrayList<Ruoka> ruuat = new ArrayList<>();
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,14 +39,14 @@ public class GraphFragment extends Fragment {
         SharedPreferences.Editor edit = share.edit();
 
         GraphView graph = (GraphView) v.findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-
+        if(ruuat.size() > 0) {
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
+                for(int i = 0; i < ruuat.size(); i++){
+                    DataPoint pointti = new DataPoint(i, ruuat.get(i).getKalorit());
+                    series.appendData(pointti, true, ruuat.size());
+            }
+            graph.addSeries(series);
+        }
         String liikunta = share.getString("liikunnat", null);
         String ruoka = share.getString("ruuat", null);
         Type liikuntaTyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
