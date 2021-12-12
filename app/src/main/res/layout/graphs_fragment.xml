@@ -62,7 +62,7 @@
         android:textColor="@color/black"
         android:text="Syötyjen annosten kalorimäärät:" />
 
-    <TextView
+     <TextView
         android:id="@+id/liikunta_graph_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

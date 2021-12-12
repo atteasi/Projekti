@@ -18,9 +18,13 @@
         android:id="@+id/cm_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="110dp"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="85dp"
+        android:layout_marginEnd="272dp"
         android:layout_marginBottom="624dp"
         android:text="cm, "
         android:textSize="16dp" />
@@ -59,8 +63,10 @@
         android:id="@+id/kg_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="254dp"
         android:layout_marginEnd="142dp"
         android:layout_marginBottom="624dp"
         android:text="kg" />
@@ -69,10 +75,12 @@
         android:id="@+id/lasku_nappi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="535dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="505dp"
         android:text="Laske BMI" />
 
     <TextView
@@ -90,9 +98,11 @@
         android:id="@+id/bmi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="173dp"
+        android:layout_marginStart="197dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="451dp"
         android:text="0.0"
         android:textSize="30sp" />

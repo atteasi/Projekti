@@ -14,27 +14,30 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.text.DecimalFormat;
+
 public class BMIFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.bmi_fragment, container, false);
-
+        DecimalFormat df = new DecimalFormat("0.00");
         EditText pituus = v.findViewById(R.id.pituus);
         EditText paino = v.findViewById(R.id.paino);
-        Button nappi = (Button) v.findViewById(R.id.nappi);
+        Button nappi = (Button) v.findViewById(R.id.lasku_nappi);
         TextView bmiText = v.findViewById(R.id.bmi);
 
         nappi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String height = pituus.getText().toString();
-                int pituusInt = Integer.parseInt(height);
+                float pituusInt = (float) (Double.parseDouble(height) / 100);
                 String weight = paino.getText().toString();
                 int painoInt = Integer.parseInt(weight);
                 float bmi = (float) painoInt / (pituusInt * pituusInt);
-                bmiText.setText(String.valueOf(bmi));
+                String formattedBmi = df.format(bmi);
+                bmiText.setText(formattedBmi);
             }
         });
         return v;
