@@ -44,4 +44,8 @@ public class CalAdd {
 
     public  int getCalories() {return calories;}
 
+    @Override
+    public String toString() {
+        return insertDate.toString() + " " + description + ",                " + calories + " kaloria";
+    }
 }
