@@ -11,14 +11,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = User.class, version = 7, exportSchema = false)
+@Database(entities = {User.class, CalAdd.class, CalSub.class, Weight.class}, version = 9, exportSchema = false)
 @TypeConverters({ADBConverters.class})
 public abstract class AppRoomDatabase extends RoomDatabase {
 
     public abstract UserDAO userDAO();
-    //public abstract CalAddDAO calAddDAO();
-    //public abstract CalSubDAO calSubDAO();
-    //public abstract WeightDAO weightDAO();
+    public abstract CalAddDAO calAddDAO();
+    public abstract CalSubDAO calSubDAO();
+    public abstract WeightDAO weightDAO();
 
     private static volatile AppRoomDatabase roomInstance;
     private static final int NUMBER_OF_THREADS = 4;
