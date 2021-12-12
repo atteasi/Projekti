@@ -38,4 +38,8 @@ public class Liikunta {
         String kaloreita = Integer.toString(this.kalorit);
         return this.submissionDate + " " + this.muoto + ",                " + kaloreita + " kulutettua kaloria";
     }
+
+    public int getKalorit(){
+        return this.kalorit;
+    }
 }
