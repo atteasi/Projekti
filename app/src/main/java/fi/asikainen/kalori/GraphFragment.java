@@ -14,6 +14,9 @@ import androidx.fragment.app.Fragment;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -30,6 +33,15 @@ public class GraphFragment extends Fragment {
 
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
+
+        GraphView graph = (GraphView) v.findViewById(R.id.graph);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
+                new DataPoint(0, 1),
+                new DataPoint(1, 5),
+                new DataPoint(2, 3),
+                new DataPoint(3, 2),
+                new DataPoint(4, 6)
+        });
 
         String liikunta = share.getString("liikunnat", null);
         String ruoka = share.getString("ruuat", null);
