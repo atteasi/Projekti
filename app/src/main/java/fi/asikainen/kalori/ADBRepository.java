@@ -11,19 +11,21 @@ import java.util.concurrent.Future;
 /**ADBRepository Application DataBase Repository */
 class ADBRepository {
 
-    private UserDAO userDao;
-    private WeightDAO weightDao;
-    private LiveData<List<User>> allUsers;
-    private LiveData<List<Weight>> allWeights;
+    private UserDAO userDao; CalAddDAO calAddDao; CalSubDAO calSubDao; WeightDAO weightDao;
+    private LiveData<List<User>> allUsers; LiveData<List<Weight>> allWeights;
+            LiveData<List<CalAdd>> allCalAdds; LiveData<List<CalSub>> allCalSubs;
+    private LiveData<List<Weight>> allUserWeights; LiveData<List<CalAdd>> allUserCalAdds;
     private User getNamedUser;
 
     ADBRepository(Application application){
         AppRoomDatabase database = AppRoomDatabase.getDatabase(application);
-        userDao = database.userDAO();
+        userDao = database.userDAO(); calAddDao = database.calAddDAO(); calSubDao = database.calSubDAO();
+        weightDao = database.weightDAO();
 
-        //getNamedUser = userDao.getNamedUser(userDao.);
         allUsers = userDao.getAllUsers();
         allWeights = weightDao.getAllWeights();
+        allCalAdds = calAddDao.getAllCalAdd();
+        allCalSubs = calSubDao.getAllCalSub();
 
     }
 
@@ -32,6 +34,56 @@ class ADBRepository {
             userDao.insert(user);
         });
     }
+
+    void delete(User user) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            userDao.delete(user);
+        });
+    }
+
+    void insert(Weight weight) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            weightDao.insert(weight);
+        });
+    }
+
+    void delete(Weight weight) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            weightDao.delete(weight);
+        });
+    }
+
+    void insert(CalAdd calAdd) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            calAddDao.insert(calAdd);
+        });
+    }
+
+    void delete(CalAdd calAdd) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            calAddDao.delete(calAdd);
+        });
+    }
+
+    void insert(CalSub calSub) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            calSubDao.insert(calSub);
+        });
+    }
+
+    void delete(CalSub calSub) {
+        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
+            calSubDao.delete(calSub);
+        });
+    }
+
+    LiveData<List<User>> getAllUsers(){return allUsers;}
+
+    LiveData<List<Weight>> getAllWeights(){return allWeights;}
+
+    LiveData<List<CalAdd>> getAllCalAdds(){return allCalAdds;}
+
+    LiveData<List<CalSub>> getAllCalSubs(){return allCalSubs;}
 
     User getNamedUser(String first, String last){
         Future<User> futureUser = AppRoomDatabase.databaseReadExecutor.submit(()-> userDao.getNamedUser(first, last));
@@ -43,18 +95,24 @@ class ADBRepository {
         return getNamedUser;
     }
 
-    void insert(Weight weight) {
-        AppRoomDatabase.databaseWriteExecutor.execute(() -> {
-            weightDao.insert(weight);
-        });
+    LiveData<List<Weight>> getUsersWeights(int userID){
+        Future<LiveData<List<Weight>>> futureUserWeights = AppRoomDatabase.databaseReadExecutor.submit(()-> weightDao.getUsersWeights(userID));
+        try {
+            allUserWeights = futureUserWeights.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return allUserWeights;
     }
 
-    LiveData<List<User>> getUser(){
-        return allUsers;
+    LiveData<List<CalAdd>> getUsersCalAdds(int userID){
+        Future<LiveData<List<CalAdd>>> futureUserCalAdds = AppRoomDatabase.databaseReadExecutor.submit(()-> calAddDao.getAllCalAdd());
+        try {
+            allUserCalAdds = futureUserCalAdds.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+        return allUserCalAdds;
     }
-
-    LiveData<List<Weight>> getAllWeights(){return allWeights;}
-
-
 
 }

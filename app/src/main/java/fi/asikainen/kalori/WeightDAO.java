@@ -21,7 +21,7 @@ public interface WeightDAO {
     @Query("SELECT * FROM weight")
     LiveData<List<Weight>> getAllWeights();
 
-    /* @Query("SELECT * FROM weight WHERE user_firstname = :first AND user_lastname = :last")
-    User getNamedUser(String first, String last); */
+    @Query("SELECT * FROM weight WHERE userID = :userID ")
+    LiveData<List<Weight>> getUsersWeights(int userID);
 
 }

@@ -9,30 +9,51 @@ import java.util.List;
 public class ADBViewModel extends AndroidViewModel {
 
     private ADBRepository repository;
-    private final LiveData<List<User>> userList;
-    private final LiveData<List<Weight>> weightList;
-    //private User getNamedUser;
+    private final LiveData<List<User>> userList; LiveData<List<Weight>> weightList;
+                  LiveData<List<CalAdd>> calAddList; LiveData<List<CalSub>> calSubList;
+
 
     public ADBViewModel(Application application){
         super(application);
         repository = new ADBRepository(application);
 
-        userList = repository.getUser();
+        userList = repository.getAllUsers();
         weightList = repository.getAllWeights();
-        //getNamedUser = repository.getNamedUser(getNamedUser.nameFirst, getNamedUser.nameLast);
+        calAddList = repository.getAllCalAdds();
+        calSubList = repository.getAllCalSubs();
 
     }
 
     public void insert(User user) {repository.insert(user); }
 
-    User getNamedUser(String first, String last){
-        return repository.getNamedUser(first, last);
-    }
+    public void delete(User user) {repository.delete(user);}
 
-    LiveData<List<User>> getAllUsers(){
-        return userList;
-    }
+    public void insert(Weight weight) {repository.insert(weight);}
+
+    public void delete(Weight weight) {repository.delete(weight);}
+
+    public void insert(CalAdd calAdd) {repository.insert(calAdd);}
+
+    public void delete(CalAdd calAdd) {repository.delete(calAdd);}
+
+    public void insert(CalSub calSub) {repository.insert(calSub);}
+
+    public void delete(CalSub calSub) {repository.delete(calSub);}
+
+    LiveData<List<User>> getAllUsers(){return userList;}
 
     LiveData<List<Weight>> getAllWeights(){return weightList;}
+
+    LiveData<List<CalAdd>> getAllCalAdds(){return calAddList;}
+
+    LiveData<List<CalSub>> getAllCalSubs(){return calSubList;}
+
+    User getNamedUser(String first, String last){return repository.getNamedUser(first, last);}
+
+    LiveData<List<Weight>> getUsersWeights(int userID){return repository.getUsersWeights(userID);}
+
+    LiveData<List<CalAdd>> getUsersCalAdds(int userID){return repository.getUsersCalAdds(userID);}
+
+
 
 }

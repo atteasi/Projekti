@@ -20,13 +20,17 @@ public class CalSub {
     @ColumnInfo(name = "creation_date")
     public Date insertDate;
 
+    @ColumnInfo(name = "activity_description")
+    public String description;
+
     @NonNull
     @ColumnInfo(name = "calorie_amount")
     public int calories;
 
-    public CalSub(@NonNull int userID, @NonNull int calories, @NonNull Date insertDate) {
+    public CalSub(@NonNull int userID, @NonNull Date insertDate, String description, @NonNull int calories) {
         this.userID = userID;
         this.insertDate = insertDate;
+        this.description = description;
         this.calories = calories;
     }
 
@@ -35,6 +39,8 @@ public class CalSub {
     public int getUserID() {return userID;}
 
     public Date getInsertDate() {return insertDate;}
+
+    public String getDescription() {return description;}
 
     public  int getCalories() {return calories;}
 
