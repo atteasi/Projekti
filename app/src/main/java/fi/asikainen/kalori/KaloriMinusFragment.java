@@ -20,8 +20,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 /**
  * The fragment used to log exerices that burn calories
