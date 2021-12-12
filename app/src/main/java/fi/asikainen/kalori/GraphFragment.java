@@ -38,7 +38,8 @@ public class GraphFragment extends Fragment {
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
 
-        GraphView ruokaGraph = (GraphView) v.findViewById(R.id.graph);
+        GraphView ruokaGraph = (GraphView) v.findViewById(R.id.ruoka_graph);
+        GraphView liikuntaGraph = (GraphView) v.findViewById(R.id.liikunta_graph);
         if(ruuat.size() > 0) {
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>();
                 for(int i = 0; i < ruuat.size(); i++){
@@ -64,12 +65,16 @@ public class GraphFragment extends Fragment {
             }
             ruokaGraph.addSeries(ruokaSetti);
         }
+        if (liikunnat == null){
+            liikunnat = new ArrayList<>();
+        }
         if (liikunnat.size() > 0){
             LineGraphSeries<DataPoint> liikuntaSetti = new LineGraphSeries<>();
             for(int i = 0; i < liikunnat.size(); i++){
                 DataPoint liikuntaPointti = new DataPoint(i, liikunnat.get(i).getKalorit());
                 liikuntaSetti.appendData(liikuntaPointti,true, liikunnat.size());
             }
+            liikuntaGraph.addSeries(liikuntaSetti);
         }
         Button clear = (Button) v.findViewById(R.id.clearaus);
         clear.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +84,7 @@ public class GraphFragment extends Fragment {
                 edit.remove("liikunnat");
                 edit.commit();
                 ruokaGraph.removeAllSeries();
+                liikuntaGraph.removeAllSeries();
             }
         });
         return v;
