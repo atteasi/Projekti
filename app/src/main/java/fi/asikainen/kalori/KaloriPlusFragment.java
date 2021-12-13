@@ -64,13 +64,13 @@ public class KaloriPlusFragment extends Fragment {
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, ruuat);
         ruokalista.setAdapter(listaaja);
         //The button functionality: It saves the logged entry and clears the EditText fields ready for a new entry. At the end, updates the list
-        ArrayList<Ruoka> finalRuuat = ruuat;
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String addRuoka = ruoka.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
+                // If the calories of the given data are above 0, the data is added and the EditText-fields are cleared
                 if(addKalorit > 0) {
                     ruuat.add(new Ruoka(addKalorit, addRuoka, date));
                     ruoka.setText("");

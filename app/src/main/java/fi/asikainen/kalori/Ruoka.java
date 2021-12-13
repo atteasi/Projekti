@@ -30,20 +30,35 @@ public class Ruoka{
         this.submissionDate = dtf.format(paiva);
     }
 
-
+    /**
+     * The toString method for the Ruoka-class
+     * @return form of the print that shows up in a ListView
+     */
     public String toString(){
         String kaloreita = Integer.toString(this.kalorit);
         return this.submissionDate + " " + this.nimi + ", " + kaloreita + " kaloria";
     }
 
+    /**
+     * Used to get the calories inputted in a certain entry
+     * @return the calories of a certain entry
+     */
     public int getKalorit() {
         return this.kalorit;
     }
 
+    /**
+     * Used to return the name of a certain entry
+     * @return calories of a certain entry
+     */
     public String getNimi() {
         return nimi;
     }
 
+    /**
+     * Used to return the date the entry was added
+     * @return the date the certain entry was added
+     */
     public String getSubmissionDate() {
         return this.submissionDate;
     }

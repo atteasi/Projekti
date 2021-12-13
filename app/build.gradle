@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    compileOnly files("C:/Users/atte_/AppData/Local/Android/Sdk/platforms/android-31/android.jar")
+    compileOnly files("C:/Users/Atte/AppData/Local/Android/Sdk/platforms/android-31/android.jar")
 
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.github.blackfizz:eazegraph:1.2.5l@aar'

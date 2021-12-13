@@ -12,6 +12,7 @@ import java.time.format.DateTimeFormatter;
  */
 
 @RequiresApi(api = Build.VERSION_CODES.O)
+
 public class Liikunta {
 
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
@@ -23,6 +24,7 @@ public class Liikunta {
      * The constuctor for Liikunta-type entries
      * @param muoto The form of exercise the user logs
      * @param kalorit The amount of calories burned
+     * @param paiva The date this entry was created
      */
     public Liikunta(String muoto, int kalorit, LocalDate paiva) {
         this.muoto = muoto;
@@ -39,7 +41,12 @@ public class Liikunta {
         return this.submissionDate + " " + this.muoto + ", " + kaloreita + " kaloria";
     }
 
+    /**
+     * Used to get the calories burned in a certain exercise
+     * @return the calories burned by a certain entry
+     */
     public int getKalorit(){
+
         return this.kalorit;
     }
 }
