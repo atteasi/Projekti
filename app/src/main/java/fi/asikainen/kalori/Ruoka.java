@@ -21,7 +21,7 @@ public class Ruoka{
      * The constructor for the Ruoka-class
      * @param kalorit The amount of calories in the consumed food
      * @param nimi The name of the dish/food item
-     * @param paiva
+     * @param paiva The date when the dish was added
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Ruoka(int kalorit, String nimi, LocalDate paiva) {
