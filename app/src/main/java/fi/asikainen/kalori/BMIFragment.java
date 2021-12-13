@@ -19,6 +19,10 @@ import java.text.DecimalFormat;
  */
 public class BMIFragment extends Fragment {
 
+    /**
+     * The onCreate method of this fragment, handling all the layout items, calculating the BMI based on input data and the button functionality
+     * @return the view that is created
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
