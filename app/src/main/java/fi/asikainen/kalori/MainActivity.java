@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
     }
 
-    /**
-     * The method that handles the switching of fragments when selecting different items on the BottomNavigationView
-     */
+    //Setting up the method where you can switch between fragments with the BottomNavigationView
     private BottomNavigationView.OnNavigationItemSelectedListener listener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
-
+                /**
+                 * The method that handles the switching of fragments when selecting different items on the BottomNavigationView
+                 */
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     Fragment selection = null;
                     // Assigns a value to the selection- variable based on the selection of item in the BottomNavigationView
