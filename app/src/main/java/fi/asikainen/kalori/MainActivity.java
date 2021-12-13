@@ -18,11 +18,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  */
 
 public class MainActivity extends AppCompatActivity {
-
-    @Override
     /**
      * The onCreate method that gets rid of the title bar and sets up the BottomNavigationView
      */
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Gets rid of the title bar
