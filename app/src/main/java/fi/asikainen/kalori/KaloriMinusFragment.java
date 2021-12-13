@@ -36,6 +36,10 @@ public class KaloriMinusFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
+    /**
+     * The onCreate method of this fragment, handling all the layout assignments, listing of the previously added data and the button functionality
+     * @return the view that is created
+     */
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);

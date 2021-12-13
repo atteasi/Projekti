@@ -24,7 +24,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-
+/**
+ * The Home Screen fragment, shows the added calory - data for today and the progressbar that shows that how much of your daily
+ * calories are consumed
+ */
 public class HomeFragment extends Fragment {
 
 
@@ -33,6 +36,14 @@ public class HomeFragment extends Fragment {
     private ArrayList<Ruoka> todaysRuuat = new ArrayList<>();
     private ArrayAdapter<Ruoka> listaaja;
     private int progress;
+
+    /**
+     * The
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Nullable
     @Override
@@ -40,7 +51,6 @@ public class HomeFragment extends Fragment {
 
         LocalDate date = LocalDate.now();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/YYYY");
         View v =  inflater.inflate(R.layout.home_fragment, container, false);
         ProgressBar dailyKalorit = (ProgressBar) v.findViewById(R.id.progressBar);
         ListView list = v.findViewById(R.id.list);
