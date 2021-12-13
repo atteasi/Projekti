@@ -63,10 +63,12 @@ public class KaloriMinusFragment extends Fragment {
                 String addLiikunta = liikunta.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
-                liikunnat.add(new Liikunta(addLiikunta, addKalorit, date));
-                liikunta.setText("");
-                kalorit.setText("0");
-                listaaja.notifyDataSetChanged();
+                if (addKalorit > 0) {
+                    liikunnat.add(new Liikunta(addLiikunta, addKalorit, date));
+                    liikunta.setText("");
+                    kalorit.setText("0");
+                    listaaja.notifyDataSetChanged();
+                }
             }
         });
         return v;

@@ -71,11 +71,12 @@ public class KaloriPlusFragment extends Fragment {
                 String addRuoka = ruoka.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
-
-                ruuat.add(new Ruoka(addKalorit, addRuoka, date));
-                ruoka.setText("");
-                kalorit.setText("0");
-                listaaja.notifyDataSetChanged();
+                if(addKalorit > 0) {
+                    ruuat.add(new Ruoka(addKalorit, addRuoka, date));
+                    ruoka.setText("");
+                    kalorit.setText("0");
+                    listaaja.notifyDataSetChanged();
+                }
             }
         });
         return v;

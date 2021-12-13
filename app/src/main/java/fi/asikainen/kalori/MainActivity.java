@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigator.setOnNavigationItemSelectedListener(listener);
         bottomNavigator.setSelectedItemId(R.id.nav_home);
 
-        bottomNavigator.setSelectedItemId(R.id.nav_home);
-
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
     }
 
