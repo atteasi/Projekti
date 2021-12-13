@@ -43,30 +43,32 @@ public class KaloriMinusFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.kalori_minus_fragment, container, false);
-
+        //Gets todays date and saves it as a LocalDate variable
         LocalDate date = LocalDate.now();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         String json = share.getString("liikunnat", null);
         Type tyyppi = new TypeToken<ArrayList<Liikunta>>() {}.getType();
         liikunnat = gson.fromJson(json, tyyppi);
+        // If the retrieved ArrayList is null, a new one is created instead
         if(liikunnat == null){
             liikunnat = new ArrayList<>();
         }
-
+        //Setting up the layout items
         Button add = (Button) v.findViewById(R.id.nappi);
         EditText liikunta = v.findViewById(R.id.liikunta_edit);
         EditText kalorit = v.findViewById(R.id.kalorit_edit);
         ListView liikuntaLista = v.findViewById(R.id.liikuntalista);
-
+        // Setting up the ArrayAdapter for the ListView
         this.listaaja = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1, liikunnat);
         liikuntaLista.setAdapter(listaaja);
-
+        //The button functionality: Adds the name of the entry and burned calories to the ArrayList and clears the EditTexts
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String addLiikunta = liikunta.getText().toString();
                 String kaloriValue = kalorit.getText().toString();
                 int addKalorit = Integer.parseInt(kaloriValue);
+                //If the addKalorit value is more than 0, the user inputted data is saved into the ArrayList
                 if (addKalorit > 0) {
                     liikunnat.add(new Liikunta(addLiikunta, addKalorit, date));
                     liikunta.setText("");
@@ -78,11 +80,14 @@ public class KaloriMinusFragment extends Fragment {
         return v;
     }
 
+    /**
+     * Saves the data of liikunnat-ArrayList when the fragment goes on pause
+     */
     public void onPause() {
         super.onPause();
         SharedPreferences share = getActivity().getSharedPreferences("SharedPref", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = share.edit();
-
+        // Saves the liikunnat-ArrayList
         String json = gson.toJson(liikunnat);
         edit.putString("liikunnat", json);
         edit.commit();

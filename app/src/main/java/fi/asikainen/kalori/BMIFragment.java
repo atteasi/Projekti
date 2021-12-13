@@ -14,18 +14,23 @@ import androidx.fragment.app.Fragment;
 
 import java.text.DecimalFormat;
 
+/**
+ * The fragment that calculates the users BMI
+ */
 public class BMIFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.bmi_fragment, container, false);
+        //A formatter for the BMI
         DecimalFormat df = new DecimalFormat("0.00");
+        //Assigning the layout items
         EditText pituus = v.findViewById(R.id.pituus);
         EditText paino = v.findViewById(R.id.paino);
         Button nappi = (Button) v.findViewById(R.id.lasku_nappi);
         TextView bmiText = v.findViewById(R.id.bmi);
-
+        //The button functionality, takes the inputted height and weight data and calculates the BMI from them
         nappi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
