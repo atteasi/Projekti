@@ -42,9 +42,11 @@ public class BMIFragment extends Fragment {
                 float pituusInt = (float) (Double.parseDouble(height) / 100);
                 String weight = paino.getText().toString();
                 int painoInt = Integer.parseInt(weight);
-                float bmi = (float) painoInt / (pituusInt * pituusInt);
-                String formattedBmi = df.format(bmi);
-                bmiText.setText(formattedBmi);
+                if (painoInt > 0 && pituusInt > 0) {
+                    float bmi = (float) painoInt / (pituusInt * pituusInt);
+                    String formattedBmi = df.format(bmi);
+                    bmiText.setText(formattedBmi);
+                }
             }
         });
         return v;
