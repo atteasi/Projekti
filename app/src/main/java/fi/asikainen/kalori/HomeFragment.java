@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     /**
      * The onCreate method of this fragment, handling all the layout assignments, listing todays added calory-data and the progress bars progress
-     * @return
+     * @return v variable with the View
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
 
