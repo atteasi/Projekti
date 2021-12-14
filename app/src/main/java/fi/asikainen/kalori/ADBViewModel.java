@@ -8,12 +8,14 @@ import androidx.lifecycle.LiveData;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Viewmodel Class to wrap and call for the Repository Class.
+ */
 public class ADBViewModel extends AndroidViewModel {
 
     private ADBRepository repository;
     private final LiveData<List<User>> userList; LiveData<List<Weight>> weightList;
                   LiveData<List<CalAdd>> calAddList; LiveData<List<CalSub>> calSubList;
-
 
 
     public ADBViewModel(Application application){

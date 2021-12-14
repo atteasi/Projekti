@@ -11,6 +11,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Database Class component of Room used to determine which tables will be present in the database
+ * and database initialization. Singleton architecture. Sets up threading.
+ */
 @Database(entities = {User.class, CalAdd.class, CalSub.class, Weight.class}, version = 10, exportSchema = false)
 @TypeConverters({ADBConverters.class})
 public abstract class AppRoomDatabase extends RoomDatabase {
@@ -25,6 +29,11 @@ public abstract class AppRoomDatabase extends RoomDatabase {
     static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     static final ExecutorService databaseReadExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
+    /**
+     * Method for initializing new/or calling current instance of the singleton Database (roomInstance)
+     * @param context Application context given by Android
+     * @return Instance of "roomInstance" that points to the database built by Room.databaseBuilder
+     */
     static AppRoomDatabase getDatabase(final Context context) {
         if (roomInstance == null) {
             synchronized (AppRoomDatabase.class) {
