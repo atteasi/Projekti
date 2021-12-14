@@ -10,6 +10,9 @@ import androidx.room.Query;
 
 import java.util.List;
 
+/** @Author Ricardo Nunes
+ * Data Access Object Type Room component for accessing the database. DAO
+ */
 @Dao
 public interface UserDAO {
 
@@ -24,13 +27,5 @@ public interface UserDAO {
 
     @Query("SELECT * FROM user WHERE user_firstname = :first AND user_lastname = :last")
     User getNamedUser(String first, String last);
-
-
-    //@Query("SELECT * FROM User")
-    //public User[] loadAllUsers();
-
-
-    /*@Query("SELECT * From User WHERE nameFirst LIKE :search")
-    public List<User> findUserWithName(String search);*/
 
 }

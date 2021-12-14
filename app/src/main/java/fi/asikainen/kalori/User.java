@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
+/** @Author Ricardo Nunes
  *Entity Class component of Room used to define Entity Objects that will populate single row in their table
  *and columns defined
  *User entity to store row ID, Insertion Date, User Age, User Birthday Date,
