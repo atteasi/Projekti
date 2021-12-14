@@ -25,6 +25,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * The fragment used to log exerices that burn calories
  */
 

@@ -15,6 +15,9 @@ import androidx.fragment.app.Fragment;
 import java.text.DecimalFormat;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * The fragment that calculates the users BMI
  */
 public class BMIFragment extends Fragment {

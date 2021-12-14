@@ -24,6 +24,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * The fragment used to display graphs based on the user inputted data and delete the inputted data
  */
 public class GraphFragment extends Fragment {

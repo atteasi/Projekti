@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * A class that has a constructor for Liikunta-type entries and a toString method to print the wanted outcome to its assigned ListView
  */
 

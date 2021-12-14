@@ -26,6 +26,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * The fragment used to log the intake of calories
 */
 @RequiresApi(api = Build.VERSION_CODES.O)

@@ -13,7 +13,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-/** @Author Atte Asikainen
+/**
+ * @Author Atte Asikainen
+ */
+/**
  * This activity makes sure the Fragment Container displays the desired fragment with help from the BottomNavigationView
  *
  */

@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * A class that has a constructor for Ruoka-type entries and a toString method to print the wanted outcome to its assigned ListView
  */
 @RequiresApi(api = Build.VERSION_CODES.O)

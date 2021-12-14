@@ -28,6 +28,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
+ * @Author Atte Asikainen
+ */
+/**
  * The Home Screen fragment, shows the added calory - data for today and the progressbar that shows that how much of your daily
  * calories are consumed
  */
