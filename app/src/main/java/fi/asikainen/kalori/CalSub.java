@@ -7,6 +7,11 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
+/**
+ * Entity Class component of Room used to define Entity Objects that will populate single row in their table
+ * and columns defined
+ * Calories Subtracted entity to store row ID, UserID, Insertion Date, Description of the activity, Calorie Amount
+ */
 @Entity(tableName = "calories_subtracted")
 public class CalSub {
     @PrimaryKey(autoGenerate = true)
@@ -27,6 +32,13 @@ public class CalSub {
     @ColumnInfo(name = "calorie_amount")
     public int calories;
 
+    /**
+     *
+     * @param userID userID int number to identify the user adding the entry
+     * @param insertDate insertDate system fetched insert date
+     * @param description description description of the activity e.g "Jogging"
+     * @param calories calories int number of the amount of calories subtracted
+     */
     public CalSub(@NonNull int userID, @NonNull Date insertDate, String description, @NonNull int calories) {
         this.userID = userID;
         this.insertDate = insertDate;

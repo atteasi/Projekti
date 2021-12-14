@@ -7,6 +7,11 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
+/**
+*Entity Class component of Room used to define Entity Objects that will populate single row in their table
+*and columns defined
+*Weight entity to store row ID, UserID, Insertion Date, Measured Weight
+*/
 @Entity(tableName = "weight")
 public class Weight {
 
@@ -25,6 +30,12 @@ public class Weight {
     @ColumnInfo(name = "measured_weight")
     public int weight;
 
+    /**
+     *
+     * @param userID int type User Identifier
+     * @param insertDate Date type Insert Date
+     * @param weight int type Weight measurement
+     */
     public Weight(int userID, Date insertDate, int weight) {
         this.userID = userID;
         this.insertDate = insertDate;

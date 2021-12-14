@@ -9,6 +9,9 @@ import androidx.room.Query;
 
 import java.util.List;
 
+/**
+ * Data Access Object Type Room component for accessing the database. DAO
+ */
 @Dao
 public interface CalSubDAO {
 

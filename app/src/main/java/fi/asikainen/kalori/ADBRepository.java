@@ -23,7 +23,6 @@ class ADBRepository {
     private User getNamedUser;
 
     /**
-     *
      * @param application gets the global state for managing the application context
      */
     ADBRepository(Application application){

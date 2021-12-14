@@ -8,7 +8,12 @@ import androidx.room.PrimaryKey;
 import java.util.Calendar;
 import java.util.Date;
 
-//(primaryKeys = {"nameFirst", "nameLast"})
+/**
+ *Entity Class component of Room used to define Entity Objects that will populate single row in their table
+ *and columns defined
+ *User entity to store row ID, Insertion Date, User Age, User Birthday Date,
+ *User First Name, User Last Name, User Gender
+ */
 @Entity(tableName = "user")
 public class User {
 
@@ -40,6 +45,15 @@ public class User {
     @ColumnInfo(name = "user_gender")
     public String gender;
 
+    /**
+     *
+     * @param insertDate Date type object of the current time
+     * @param age int type User age
+     * @param birthday Date type object of Birthday
+     * @param nameFirst String type First name
+     * @param nameLast String type Last name
+     * @param gender String type Gender
+     */
     public User(@NonNull Date insertDate, int age, Date birthday, @NonNull String nameFirst, @NonNull String nameLast, @NonNull String gender) {
         this.insertDate = insertDate;
         this.age = age;
