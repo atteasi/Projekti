@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * @author Ricardo Nunes
+ */
+/**
  * Viewmodel Class to wrap and call for the Repository Class.
  */
 public class ADBViewModel extends AndroidViewModel {

@@ -10,6 +10,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
+ * @author Ricardo Nunes
+ */
+/**
  * Android architecture Repository class to abstract access to data sources.
  */
 //ADBRepository Application DataBase Repository

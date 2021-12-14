@@ -4,6 +4,9 @@ import androidx.room.TypeConverter;
 
 import java.util.Calendar;
 import java.util.Date;
+/**
+ * @author Ricardo Nunes
+ */
 
 /**
  * Class used to convert objects into single field in Room database. In this case Java.util.Date gets converted

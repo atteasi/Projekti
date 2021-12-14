@@ -9,7 +9,10 @@ import androidx.room.Query;
 
 import java.util.List;
 
-/** @Author Ricardo Nunes
+/**
+ * @author Ricardo Nunes
+ */
+/**
  * Data Access Object Type Room component for accessing the database. DAO
  * @Author Ricardo Nunes
  */

@@ -7,7 +7,10 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-/** @Author Ricardo Nunes
+/**
+ * @author Ricardo Nunes
+ */
+/**
 *Entity Class component of Room used to define Entity Objects that will populate single row in their table
 *and columns defined
 *Weight entity to store row ID, UserID, Insertion Date, Measured Weight

@@ -8,6 +8,9 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 
 /**
+ * @author Ricardo Nunes
+ */
+/**
  * Entity Class component of Room used to define Entity Objects that will populate single row in their table
  * and columns defined
  * Calories added entity to store row ID, UserID, Insertion Date, Description of the activity, Calorie Amount

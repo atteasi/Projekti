@@ -11,7 +11,10 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-/** @Author Ricardo Nunes
+/**
+ * @author Ricardo Nunes
+ */
+/**
  * Database Class component of Room used to determine which tables will be present in the database
  * and database initialization. Singleton architecture. Sets up threading.
  */
